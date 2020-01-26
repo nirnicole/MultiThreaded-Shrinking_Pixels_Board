@@ -9,5 +9,6 @@ choose the dimensions for the matrix, then click on a cell to make it alive(blac
 then press goes and limits processes and transitions.
 the program will now shrink pixels that have a dead neighbor!
 
+
 you can play with it and suggest improvements,
 enjoy!
