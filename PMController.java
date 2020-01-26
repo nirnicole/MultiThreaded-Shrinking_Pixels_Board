@@ -51,6 +51,8 @@ public class PMController{
 			public void  actionPerformed(ActionEvent e) {
 				  //set game to play
 				  if(e.getSource() == view.getCmdGo()) {
+					  model.update();		//setting number of transitions and processes running concurrently
+					  model.setBoardReady(true);  //locking the board for changes
 					  for(int i=0; i<model.getNUM_OF_TRANSITIONS(); i++)
 					  {
 						  model.millPhase();
@@ -59,9 +61,9 @@ public class PMController{
 							  TimeUnit.SECONDS.sleep(1);
 							  } catch (InterruptedException e1) {	e1.printStackTrace();}
 					  }
-					  model.setBoardReady(true);  
-					 JOptionPane.showMessageDialog(null, "transitions completed,\npress clear to start over!");
-				  }
+					  model.setBoardReady(false);  //releasing the board again
+					  JOptionPane.showMessageDialog(null, "transitions completed,\npress Clear to start over or Go to continue!");
+				  }//end of go cmd
 				  
 				  //clear board
 				  if(e.getSource() == view.getCmdClear()) {
@@ -70,7 +72,7 @@ public class PMController{
 								model.getMillingPanels()[i][j].clearPanel();
 					  model.setBoardReady(false);
 					  JOptionPane.showMessageDialog(null, "Clearing board!");
-			  }
+			  	}//end of clear cmd
 			  
 				  view.repaint(); //anyway
 			}//end of action preformed
@@ -79,7 +81,7 @@ public class PMController{
 		//mose actions
 		private class MouseListenerCMD implements MouseListener { 
 			    // default constructor 
-				MouseListenerCMD() { }
+			    MouseListenerCMD() { }
 			    public void mousePressed(MouseEvent e) { } 
 			    public void mouseReleased(MouseEvent e)  { } 
 			    
@@ -124,7 +126,7 @@ public class PMController{
 		            }
 			    	view.repaint();
 			    }
-		 }
+		 }//end of mouse listner
 		
 		//show GUI
 		public void showMvc()	 {	this.view.setVisible(true);}		//i chose to show the view through the controller
