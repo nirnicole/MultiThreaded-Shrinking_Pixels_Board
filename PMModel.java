@@ -14,11 +14,9 @@ public class PMModel {
 
 	//constructor
 	public PMModel() {
-		//input data from user
+		//input matrix dimensions from user
 		try {
 			this.MATRIX_DIMENSION = Integer.parseInt(JOptionPane.showInputDialog("Please enter the dimension for the pixels matrix:") );    
-			this.NUM_OF_PROCESSES = Integer.parseInt(JOptionPane.showInputDialog("Please enter number of procceses:") );    
-			this.NUM_OF_TRANSITIONS = Integer.parseInt(JOptionPane.showInputDialog("Please enter number of transitions:") );    
 		}catch(NumberFormatException e) {JOptionPane.showMessageDialog(null, "Error: \nincorrect syntax for input number."); }
 		
 		millingPanels = new millingPanel[MATRIX_DIMENSION][MATRIX_DIMENSION];	
@@ -104,6 +102,14 @@ public class PMModel {
 			return true; //if no neighbor found white, stays black.
 		}
 		return false;
+	}//end of method
+	
+	//updating model numver of processes and transitions
+	public void update() {
+		try {
+			NUM_OF_PROCESSES = Integer.parseInt(JOptionPane.showInputDialog("Please enter number of procceses:") ) ;    
+			NUM_OF_TRANSITIONS = Integer.parseInt(JOptionPane.showInputDialog("Please enter number of transitions:") );    
+		}catch(NumberFormatException e) {JOptionPane.showMessageDialog(null, "Error: \nincorrect syntax for input number."); }
 	}//end of method
 	
 }//end of class
