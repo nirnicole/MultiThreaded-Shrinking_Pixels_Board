@@ -17,3 +17,8 @@ the program will now shrink pixels that have a dead neighbor!
 
 you can play with it and suggest improvements,
 enjoy!
+
+screemshot:
+
+![alt text](https://github.com/nirnicole/MultiThreaded-Shrinking_Pixels_Board/blob/master/millingpixels.png?raw=true)
+
